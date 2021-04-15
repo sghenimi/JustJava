@@ -5,12 +5,18 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.Properties;
 
 public class MainApp {
 
     public static void main(String[] args) {
-        connecteDB();
+        //connecteDB();
+        //reverseStr();
+        //calculAge(1987, 11, 3);
+        toBinary(7);
     }
 
     private static void connecteDB() {
@@ -47,10 +53,37 @@ public class MainApp {
         // Java 8 , print key and values
         // Get all keys
         prop.keySet().forEach(x -> System.out.println(x));
-
         prop.forEach((key, value) -> System.out.println("Key : " + key + ", Value : " + value));
-
-
     }
 
+    private static void reverseStr(){
+        String text = "Hello";
+        char[] arr = text.toCharArray();
+        System.out.println( "ntred : "+ text);
+        String res = "";
+        //your code goes here
+        for(int i = arr.length-1; i >=0; i--){
+            res = res + arr[i];
+            System.out.println(arr[i]);
+        }
+        System.out.print(res);
+    }
+
+    private static void calculAge(int myYear, int myMonth, int myDay){
+        LocalDate myBirth = LocalDate.of(myYear, myMonth, myDay);
+        LocalDate today = LocalDate.now();
+        long myYears = ChronoUnit.YEARS.between(myBirth, today);
+        Period p = Period.between(myBirth, today);
+        System.out.println(myYears);
+        System.out.println("Year : " + p.getYears() + "  Months:" + p.getMonths() + " days: " + p.getDays());
+    }
+
+    private static void toBinary(int num){
+        String binary="";
+        while(num > 0) {
+            binary = (num%2) + binary;
+            num /= 2;
+        }
+        System.out.println("binary value : "+ binary);
+    }
 }
