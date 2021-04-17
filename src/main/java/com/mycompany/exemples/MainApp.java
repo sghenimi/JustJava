@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Properties;
 
 public class MainApp {
@@ -16,7 +18,8 @@ public class MainApp {
         //connecteDB();
         //reverseStr();
         //calculAge(1987, 11, 3);
-        toBinary(7);
+        //toBinary(7);
+        operationLinkedList();
     }
 
     private static void connecteDB() {
@@ -85,5 +88,18 @@ public class MainApp {
             num /= 2;
         }
         System.out.println("binary value : "+ binary);
+    }
+
+    private static void operationLinkedList(){
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (int i = 0; i < 6; i++) {
+            list.add(i);
+        }
+        int x = 0;
+        Iterator<Integer> it = list.iterator();
+        while (it.hasNext()) {
+            x+= it.next();
+        }
+        System.out.println(x);
     }
 }
