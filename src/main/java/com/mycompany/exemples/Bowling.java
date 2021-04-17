@@ -29,7 +29,9 @@ class Bowling {
 
     public void getWinnerJava8() {
         // players.forEach((kp,vp) -> System.out.println( kp + " : " + vp));
+        /*First Method*/
         //String maxValPlayers = players.entrySet().stream().max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getKey();
+        /*Second method*/
         String maxValPlayers = Collections.max(players.entrySet(), Map.Entry.comparingByValue()).getKey();
          System.out.println(maxValPlayers);
     }
